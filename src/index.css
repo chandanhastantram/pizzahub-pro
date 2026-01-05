@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,46 +6,33 @@
 
 @layer base {
   body {
-    @apply bg-gradient-to-br from-dark-900 via-primary-900 to-dark-800 text-white antialiased;
-    font-family: 'Outfit', system-ui, sans-serif;
-    background-size: 200% 200%;
-    animation: gradientShift 15s ease infinite;
-  }
-
-  @keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    @apply bg-stone-100 text-stone-800 antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
   }
 }
 
 @layer components {
   .input {
-    @apply w-full rounded-2xl border-2 border-primary-400/40 bg-dark-800/60 backdrop-blur-sm px-4 py-2 text-sm text-white transition-all duration-300 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-white/50 md:px-6 md:py-3 hover:border-primary-300/60 hover:shadow-glow;
+    @apply w-full rounded-full border border-stone-300 bg-white px-4 py-2 text-sm transition-all duration-200 placeholder:text-stone-400 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent md:px-6 md:py-3;
   }
 
   .btn {
-    @apply inline-flex items-center justify-center rounded-2xl px-6 py-3 font-semibold transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-dark-900 disabled:opacity-50 disabled:cursor-not-allowed;
+    @apply inline-flex items-center justify-center rounded-full px-6 py-3 font-semibold transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed;
   }
 
   .btn-primary {
-    @apply bg-gradient-to-r from-primary-600 via-primary-500 to-white text-white hover:from-primary-500 hover:via-primary-400 hover:to-white/90 focus:ring-primary-500 shadow-lg hover:shadow-glow-lg transform hover:scale-105 active:scale-95 animate-pulse-glow;
-    background-size: 200% 200%;
-    animation: gradientShift 3s ease infinite, pulseGlow 2s ease-in-out infinite;
+    @apply bg-yellow-500 text-stone-800 hover:bg-yellow-400 focus:ring-yellow-500 shadow-md hover:shadow-lg;
   }
 
   .btn-secondary {
-    @apply bg-white/10 backdrop-blur-sm border-2 border-white/30 text-white hover:bg-white/20 hover:border-white/50 hover:shadow-glow-white focus:ring-white/50 transform hover:scale-105 active:scale-95;
+    @apply bg-stone-200 text-stone-800 hover:bg-stone-300 focus:ring-stone-400;
   }
 
-  .card {
-    @apply bg-dark-800/60 backdrop-blur-md rounded-3xl shadow-xl p-6 transition-all duration-300 hover:shadow-glow-lg border border-primary-400/30 hover:border-white/40;
-  }
-
-  /* Loading animation with rose color */
+  /* Loading animation */
   .loader {
     width: 45px;
     aspect-ratio: 0.75;
-    --c: no-repeat linear-gradient(#f43f5e 0 0);
+    --c: no-repeat linear-gradient(#f59e0b 0 0);
     background: var(--c) 0% 50%, var(--c) 50% 50%, var(--c) 100% 50%;
     background-size: 20% 50%;
     animation: loading 1s infinite linear;
@@ -64,48 +51,5 @@
     80% {
       background-position: 0% 50%, 50% 50%, 100% 100%;
     }
-  }
-
-  /* Rose and white glowing text effect */
-  .text-glow {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-white to-primary-300;
-    text-shadow: 0 0 30px rgba(244, 63, 94, 0.6), 0 0 60px rgba(255, 255, 255, 0.3);
-  }
-
-  /* Enhanced pizza card with rose and white */
-  .pizza-card {
-    @apply relative overflow-hidden rounded-3xl bg-dark-800/70 backdrop-blur-lg border-2 border-primary-400/30 transition-all duration-500 hover:border-white/50 hover:shadow-glow-lg group;
-  }
-
-  .pizza-card::before {
-    content: '';
-    @apply absolute inset-0 bg-gradient-to-br from-primary-500/20 via-white/10 to-primary-400/20 opacity-0 transition-opacity duration-500;
-  }
-
-  .pizza-card:hover::before {
-    @apply opacity-100;
-  }
-
-  /* Rose and white header gradient */
-  .header-gradient {
-    @apply bg-gradient-to-r from-primary-600 via-primary-500 to-white/90;
-    background-size: 200% 200%;
-    animation: gradientShift 8s ease infinite;
-  }
-}
-
-@layer utilities {
-  .text-gradient {
-    @apply bg-gradient-to-r from-primary-400 via-white to-primary-300 bg-clip-text text-transparent;
-  }
-
-  .bg-gradient-primary {
-    @apply bg-gradient-to-br from-primary-600 via-primary-500 to-white/20;
-    background-size: 200% 200%;
-    animation: gradientShift 8s ease infinite;
-  }
-
-  .bg-dark-gradient {
-    @apply bg-gradient-to-br from-dark-900 via-primary-900/60 to-dark-800;
   }
 }
